@@ -9,7 +9,7 @@ const Login = () => {
   const dispath = useDispatch();
   const { isLoading } = useAuth();
 
-  const hendleSubmit = ({ email, password }) => {
+  const handleSubmit = ({ email, password }) => {
     dispath(logIn({ email: email, password: password }));
   };
   return (
@@ -17,7 +17,7 @@ const Login = () => {
       {isLoading && <LoadingUser />}
       <div style={{ padding: 30 }}>
         <Form
-          onSubmit={hendleSubmit}
+          onSubmit={handleSubmit}
           onType={{ name: false, email: true, password: true }}
         />
       </div>
