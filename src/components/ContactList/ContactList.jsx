@@ -1,29 +1,36 @@
-import { List, ListWrapper } from './ContactList.styled';
-import ContactListItem from 'components/ContactListItem';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
-import { getFilteredContacts } from 'redux/selectors';
 
-const ContactList = () => {
+import { Loading } from 'components/UI/Loading/Loading';
+import { List, Error, Container } from './ContactList.styled';
+import {
+  selectIsLoading,
+  selectError,
+  selectFilteredContacts,
+} from 'redux/contacts/selectors';
+import { ContactListItem } from 'components/ContactListItem/ContactListItem';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/contacts/operations';
+
+export const ContactList = () => {
+  const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  const contacts = useSelector(getFilteredContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
   return (
-    <ListWrapper>
+    <Container>
       <List>
-        {contacts.map(({ id, name, number }) => (
-          <li key={id}>
-            <ContactListItem id={id} name={name} number={number} />
-          </li>
+        {isLoading && <Loading visible={isLoading} />}
+        {error && <Error>{error}</Error>}
+        {contacts.map(contact => (
+          <ContactListItem key={contact.id} contact={contact} />
         ))}
       </List>
-    </ListWrapper>
+    </Container>
   );
 };
-
-export default ContactList;

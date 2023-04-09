@@ -1,40 +1,55 @@
-import PropTypes from 'prop-types';
-import { AiFillDelete } from 'react-icons/ai';
-import { Wrapper, Button, Text } from './ContactListItem.styled';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import React from 'react';
+import { BsTrash, BsPersonCircle, BsPen } from 'react-icons/bs';
+import { Button, Item, Span } from './ContactListItem.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redux/contacts/operations';
+import { selectIsLoading } from 'redux/auth/selectors';
+import { useState } from 'react';
+import { Modal } from 'components/Modal/Modal';
+import { toast } from 'react-toastify';
 
-const Contact = ({ id, name, number }) => {
+export function ContactListItem({ contact }) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
   const dispatch = useDispatch();
-  const handleDelete = id => dispatch(deleteContact(id));
+  const isLoading = useSelector(selectIsLoading);
+
+  const handleDeleteContact = id => {
+    dispatch(deleteContact(id));
+    toast.info(' Contact deleted. ✅ ');
+  };
+
+  const openModal = () => {
+    setIsOpenModal(true);
+  };
+  const toggleModal = () => {
+    setIsOpenModal(isOpenModal => !isOpenModal);
+  };
 
   return (
-    <Wrapper>
-      <Text>
-        {name}
-        {': '}
-        <span>
-          <a href={'tel:' + number}>{number}</a>
-        </span>
-      </Text>
+    <Item>
+      <Span>
+        <BsPersonCircle />
+      </Span>
+      <Span>{contact.name} </Span>
+      <Span>{contact.number}</Span>
       <Button
-        id={id}
-        onClick={() => {
-          handleDelete(id);
-        }}
-        title="Delete contact"
         type="button"
+        disabled={isLoading}
+        onClick={() => openModal(contact.id)}
+        title="Change contact"
       >
-        <AiFillDelete />
+        <BsPen />
       </Button>
-    </Wrapper>
+      <Button
+        type="button"
+        disabled={isLoading}
+        onClick={() => handleDeleteContact(contact.id)}
+        title="Delete contact"
+      >
+        <BsTrash />
+      </Button>
+      {isOpenModal && <Modal onClose={toggleModal} contact={contact} />}
+    </Item>
   );
-};
-
-export default Contact;
-
-Contact.propTypes = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-};
+}
