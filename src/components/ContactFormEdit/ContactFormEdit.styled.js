@@ -44,7 +44,7 @@ export const Button = styled.button`
   height: 35px;
   margin-left: auto;
   margin-right: auto;
-  color: ${p => p.theme.colors.btnСolorText};
+  cursor: pointer;
   background-color: ${p => p.theme.colors.colorElement};
   border-radius: 20px;
   padding: 7px 10px;

@@ -25,14 +25,16 @@ export const ModalContainer = styled.div`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   position: absolute;
   top: 8px;
   right: 8px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${p => p.theme.colors.backgroundColors};
+  background-color: ${p => p.theme.colors.colorElement};
   border: 1px solid ${p => p.theme.colors.colorElement};
+  color: black;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -40,11 +42,11 @@ export const Button = styled.button`
   &::before {
     content: '';
     position: absolute;
+    background-color: black;
     left: 50%;
     top: 50%;
     width: 13px;
     height: 2px;
-    background-color: ${p => p.theme.colors.colorElement};
     transform: translate(-50%, -50%) rotate(-45deg);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -53,21 +55,22 @@ export const Button = styled.button`
     position: absolute;
     left: 50%;
     top: 50%;
+    background-color: black;
+
     width: 13px;
     height: 2px;
-    background-color: ${p => p.theme.colors.colorElement};
     transform: translate(-50%, -50%) rotate(45deg);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   &:hover,
   &:focus {
-    background-color: ${p => p.theme.colors.colorElement};
     border: 1px solid ${p => p.theme.colors.backgroundColors};
     box-shadow: ${p => p.theme.sectionShadow};
-    transform: scale(1.4);
+
+    transform: scale(1.2);
     &::after,
     &::before {
-      background-color: ${p => p.theme.colors.backgroundColors};
+      background-color: black;
     }
   }
 `;
