@@ -30,7 +30,7 @@ export const Input = styled.input`
   font-weight: 700;
   &:active,
   &:focus {
-    background-color: ${p => p.theme.colors.white};
+    background-color: 'white';
     outline: transparent;
   }
 `;
