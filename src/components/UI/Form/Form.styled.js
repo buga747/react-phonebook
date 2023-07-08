@@ -9,7 +9,7 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  box-shadow: ${p => p.theme.sectionShadow};
+  /* box-shadow: ${p => p.theme.sectionShadow}; */
   border-radius: 10px;
 `;
 

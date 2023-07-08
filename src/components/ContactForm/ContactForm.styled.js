@@ -26,7 +26,6 @@ export const Span = styled.span`
 `;
 
 export const Input = styled.input`
-  background-color: ${p => p.theme.colors.colorElement};
   color: ${p => p.theme.colors.btnСolorText};
   border: 1px solid ${p => p.theme.colors.white};
   padding: 5px;
@@ -34,7 +33,6 @@ export const Input = styled.input`
 
   &:active,
   &:focus {
-    background-color: ${p => p.theme.colors.white};
     outline: transparent;
   }
 `;
