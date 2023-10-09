@@ -11,10 +11,10 @@ export const AppHome = () => {
         <Text>
           To use the application you need to
           <NavItem to="/register">Register</NavItem>
-          <p>
+          <div>
             Already registered?
             <NavItem to="/login">Login</NavItem>
-          </p>
+          </div>
         </Text>
       )}
     </Wrapper>

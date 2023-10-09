@@ -8,16 +8,27 @@ export const GlobalStyle = createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   padding-top: 10px;
   padding-bottom: 10px;
   color: ${p => p.theme.colors.colorText};
+  height: 100vh;
+  background: linear-gradient(-45deg, #f7b9a9, #a4f4ec, #96c7e4, #a4ebc8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 code {
@@ -44,6 +55,6 @@ p {
 }
 
 button {
-  cursor: 'pointer',
+  cursor: pointer; 
 }
 `;
