@@ -9,26 +9,31 @@ export const Title = styled.h1`
   font-size: 50px;
   font-weight: 700;
   text-align: center;
+  z-index: 5;
 `;
-export const Text = styled.p`
+export const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   text-align: center;
   padding: 30px;
   width: 800px;
   font-size: 30px;
   margin: 0 auto;
+  z-index: 5;
 `;
-
 
 export const NavItem = styled(NavLink)`
   font-size: 28px;
   font-weight: 700;
   text-decoration: none;
-  color: ${p => p.theme.colors.colorText};
+  color: orangered;
   margin-left: 20px;
   transition: color 250ms ease;
-  text-shadow: 1px 1px 1px rgba(123, 250, 243, 0.93);
+  padding: 8px;
+  border-radius: 16px;
 
   &:hover {
-    color: ${p => p.theme.colors.colorAccent};
+    color: coral;
   }
 `;

@@ -8,8 +8,6 @@ export const GlobalStyle = createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 10px;
-  padding-bottom: 10px;
   color: ${p => p.theme.colors.colorText};
   height: 100vh;
   background: linear-gradient(-45deg, #f7b9a9, #a4f4ec, #96c7e4, #a4ebc8);

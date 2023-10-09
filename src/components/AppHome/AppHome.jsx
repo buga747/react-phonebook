@@ -1,5 +1,5 @@
 import { useAuth } from 'hooks';
-import { Wrapper, Title, Text, NavItem } from './AppHome.styled';
+import { Wrapper, Title, TextWrapper, NavItem } from './AppHome.styled';
 
 export const AppHome = () => {
   const { isLoggedIn } = useAuth();
@@ -8,14 +8,17 @@ export const AppHome = () => {
       <Title>Contact manager📗</Title>
 
       {!isLoggedIn && (
-        <Text>
-          To use the application you need to
-          <NavItem to="/register">Register</NavItem>
-          <div>
+        <TextWrapper>
+          <p>
+            {' '}
+            To use the application you need to
+            <NavItem to="/register">Register</NavItem>
+          </p>{' '}
+          <p>
             Already registered?
             <NavItem to="/login">Login</NavItem>
-          </div>
-        </Text>
+          </p>
+        </TextWrapper>
       )}
     </Wrapper>
   );

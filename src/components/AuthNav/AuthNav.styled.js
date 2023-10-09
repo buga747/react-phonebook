@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 `;
 
 export const NavItem = styled(NavLink)`
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 700;
   text-decoration: none;
   color: ${p => p.theme.colors.colorText};

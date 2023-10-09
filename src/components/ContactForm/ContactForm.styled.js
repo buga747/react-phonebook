@@ -29,7 +29,9 @@ export const Input = styled.input`
   color: ${p => p.theme.colors.btnСolorText};
   border: 1px solid ${p => p.theme.colors.white};
   padding: 5px;
+  padding-left: 8px;
   font-weight: 700;
+  border-radius: 8px;
 
   &:active,
   &:focus {
