@@ -12,7 +12,7 @@ export const AppHome = () => {
           <p>
             {' '}
             To use the application you need to
-            <NavItem to="/register">Register</NavItem>
+            <NavItem to="/register">Sign Up</NavItem>
           </p>{' '}
           <p>
             Already registered?
