@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 export const Form = styled.form`
   background-color: ${p => p.theme.colors.backgroundColors};
   color: ${p => p.theme.colors.colorText};
-  width: 320px;
+  max-width: 360px;
   padding: 10px;
   border-radius: 10px;
   display: flex;
@@ -12,6 +12,10 @@ export const Form = styled.form`
   flex-direction: column;
   box-shadow: 0px 0px 19px 0px rgba(69, 162, 158, 1);
   border-radius: 10px;
+
+  @media (min-width: 400px) {
+    width: 300px;
+  }
 `;
 
 export const Label = styled.label`
@@ -25,15 +29,14 @@ export const Span = styled.span`
 `;
 
 export const Input = styled.input`
-  background-color: ${p => p.theme.colors.colorElement};
   color: ${p => p.theme.colors.btnСolorText};
   border: 1px solid ${p => p.theme.colors.white};
-  padding: 5px;
-  font-weight: 700;
+  padding: 8px;
+  padding-left: 16px;
+  border-radius: 8px;
 
   &:active,
   &:focus {
-    background-color: ${p => p.theme.colors.white};
     outline: transparent;
   }
 `;
