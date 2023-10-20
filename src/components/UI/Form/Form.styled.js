@@ -3,14 +3,16 @@ import styled from 'styled-components';
 export const FormContainer = styled.form`
   background-color: ${p => p.theme.colors.backgroundColors};
   color: ${p => p.theme.colors.colorText};
-  width: 320px;
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  /* box-shadow: ${p => p.theme.sectionShadow}; */
   border-radius: 10px;
+
+  @media (min-width: 440px) {
+    max-width: 320px;
+  }
 `;
 
 export const Label = styled.label`
@@ -26,7 +28,7 @@ export const Input = styled.input`
   background-color: ${p => p.theme.colors.colorElement};
   color: ${p => p.theme.colors.btnСolorText};
   border: 1px solid ${p => p.theme.colors.white};
-  padding: 5px;
+  padding: 10px 5px;
   font-weight: 700;
   &:active,
   &:focus {

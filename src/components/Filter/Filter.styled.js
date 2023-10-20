@@ -11,26 +11,24 @@ export const Div = styled.div`
 `;
 
 export const Span = styled.span`
+  display: block;
   font-size: 20px;
-  margin-right: 10px;
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    margin-right: 10px;
+  }
 `;
 
 export const Input = styled.input`
-  background-color: ${p => p.theme.colors.colorElement};
   color: ${p => p.theme.colors.btnСolorText};
-  border: transparent;
-  padding: 5px;
-  font-weight: 700;
   border: 1px solid ${p => p.theme.colors.white};
+  padding: 8px;
+  padding-left: 16px;
+  border-radius: 8px;
+
   &:active,
   &:focus {
     outline: transparent;
-  }
-  transition: box-shadow 250ms ease, transform 250ms ease;
-  &:hover,
-  &:focus {
-    background-color: white;
-    transform: scale(1.05);
-    box-shadow: ${p => p.theme.sectionShadow};
   }
 `;

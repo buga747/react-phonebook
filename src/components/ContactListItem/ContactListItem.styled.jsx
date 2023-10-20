@@ -5,20 +5,39 @@ export const Item = styled.li`
   background-color: ${p => p.theme.colors.backgroundColors};
   font-weight: 700;
   font-style: italic;
-  display: grid;
-  grid-template-columns: 30px auto 180px 30px 30px;
-  grid-column-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   padding: 10px 10px;
   border-radius: 10px;
   transition: box-shadow 250ms ease, transform 250ms ease;
-  height: 20px;
-  flex-basis: calc(100% / 2 - 30px);
-  margin: 5px;
-  width: 100%;
+  width: 260px;
+
+  padding: 5px;
   &:hover {
     transform: scale(1.05);
     box-shadow: ${p => p.theme.sectionShadow};
   }
+`;
+
+export const ContactNameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const ContactNumberWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const ContactButtonsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
 `;
 
 export const Span = styled.span`

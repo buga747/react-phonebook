@@ -1,33 +1,38 @@
 import styled from 'styled-components';
+import { HiOutlineLogout } from 'react-icons/hi';
 
 export const Wrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
 export const Text = styled.p`
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
   color: ${p => p.theme.colors.colorText};
-  margin-right: 20px;
+  margin-right: 8px;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    margin-right: 20px;
+  }
+`;
+
+export const Icon = styled(HiOutlineLogout)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const Button = styled.button`
   display: block;
-  width: 130px;
-  height: 35px;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
 
-  /* margin-left: auto;
-  margin-right: auto; */
-  color: ${p => p.theme.colors.btnСolorText};
-  background-color: ${p => p.theme.colors.colorElement};
-  border-radius: 20px;
-  padding: 7px 10px;
-  border: 0;
-  font-size: 18px;
-  transition: box-shadow 250ms ease, transform 250ms ease;
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: ${p => p.theme.sectionShadow};
+  @media (min-width: 768px) {
+    width: 40px;
+    height: 40px;
   }
 `;

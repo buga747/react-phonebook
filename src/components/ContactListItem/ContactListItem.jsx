@@ -1,6 +1,13 @@
 import React from 'react';
 import { BsTrash, BsPersonCircle, BsPen } from 'react-icons/bs';
-import { Button, Item, Span } from './ContactListItem.styled';
+import {
+  Button,
+  ContactButtonsWrapper,
+  ContactNameWrapper,
+  ContactNumberWrapper,
+  Item,
+  Span,
+} from './ContactListItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
 import { selectIsLoading } from 'redux/auth/selectors';
@@ -16,7 +23,7 @@ export function ContactListItem({ contact }) {
 
   const handleDeleteContact = id => {
     dispatch(deleteContact(id));
-    toast.info(' Contact deleted. ✅ ');
+    toast.info('Contact deleted. ✅ ');
   };
 
   const openModal = () => {
@@ -28,27 +35,31 @@ export function ContactListItem({ contact }) {
 
   return (
     <Item>
-      <Span>
+      <ContactNameWrapper>
         <BsPersonCircle />
-      </Span>
-      <Span>{contact.name} </Span>
-      <Span>{contact.number}</Span>
-      <Button
-        type="button"
-        disabled={isLoading}
-        onClick={() => openModal(contact.id)}
-        title="Change contact"
-      >
-        <BsPen />
-      </Button>
-      <Button
-        type="button"
-        disabled={isLoading}
-        onClick={() => handleDeleteContact(contact.id)}
-        title="Delete contact"
-      >
-        <BsTrash />
-      </Button>
+        <Span>{contact.name} </Span>
+      </ContactNameWrapper>
+      <ContactNumberWrapper>
+        <Span>{contact.number}</Span>
+        <ContactButtonsWrapper>
+          <Button
+            type="button"
+            disabled={isLoading}
+            onClick={() => openModal(contact.id)}
+            title="Change contact"
+          >
+            <BsPen />
+          </Button>
+          <Button
+            type="button"
+            disabled={isLoading}
+            onClick={() => handleDeleteContact(contact.id)}
+            title="Delete contact"
+          >
+            <BsTrash />
+          </Button>
+        </ContactButtonsWrapper>
+      </ContactNumberWrapper>
       {isOpenModal && <Modal onClose={toggleModal} contact={contact} />}
     </Item>
   );
