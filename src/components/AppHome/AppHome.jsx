@@ -17,7 +17,7 @@ export const AppHome = () => {
             Already registered?
             <NavItem to="/login">Login</NavItem>
           </p>
-          <p>Want to explore the application? Login as a Guest </p>
+          {/* <p>Want to explore the application? Login as a Guest </p> */}
         </TextWrapper>
       )}
     </Wrapper>
